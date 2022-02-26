@@ -1,0 +1,53 @@
+﻿@model Lab3.Models.OrderModel
+
+<!DOCTYPE html>
+    <html>
+        <head>
+        <title>Страница заказов</title>
+        </head>
+       <body>
+           <h1>
+               Вашы заказы
+           </h1>
+
+    @{
+        int count = 1;
+        foreach(var order in Model.Orders)
+        {
+         <div>
+            <p>     
+                Номер заказа: @count 
+                Заголовок: @order.title
+                    @{
+                        if (order.status)
+                        {
+                            <p>Сататус: готов</p>
+                        }
+                        else
+                        {
+                            <p>Сататус: не готов</p>
+                        }
+                    }
+                    
+                     <!--<form asp-page-handler="delete(count)" method="post">
+                        <button id = count class="btn btn-default">Удалить</button>
+                    </form>-->
+            </p>
+         </div>   
+         count++;
+        }
+    }
+        <div>
+              <div>
+                <form action="https://localhost:7260/OrderAdd">
+                    <button type="submit">Добавить</button>
+             </form>
+              </div>
+         </div>
+
+           <a href = 'https://localhost:7260/Register'>Страница Регистрации</a>
+           <br />
+           <br />
+           <a href = 'https://localhost:7260/Login'>Страница Авторизации</a>
+       </body>
+    </html>

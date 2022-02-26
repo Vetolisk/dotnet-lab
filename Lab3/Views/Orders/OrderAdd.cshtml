@@ -1,0 +1,40 @@
+﻿@model Lab3.Models.Order
+ 
+ 
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+     
+    <div>
+        <h1>Создание Заказа</h1>
+        <hr />
+        @Html.ValidationSummary(false)
+           
+        <div>
+            Название
+            <div>
+                @Html.EditorFor(model => model.title)
+            </div>
+        </div>
+
+         <div>
+            Описание
+            <div>
+                @Html.EditorFor(model => model.description)
+            </div>
+        </div>
+ 
+ 
+          <div>
+              <div>
+                <input type="submit" value="Добавить" />
+              </div>
+         </div>
+        
+         <div>
+             <a href = '/'> Главная </a>
+         </div>
+        
+    </div>
+ 
+}

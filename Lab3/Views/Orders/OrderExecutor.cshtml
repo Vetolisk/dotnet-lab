@@ -1,0 +1,29 @@
+﻿
+
+<!DOCTYPE html>
+    <html>
+        <head>
+        <title>Страница заказов</title>
+        </head>
+       <body>
+           <h1>
+               Вашы заказы
+           </h1>
+
+           @{
+        int count = 1;
+        foreach(var order in Model.Orders)
+        {
+         <div>
+            <p>Номер:@count @order.title</p>
+         </div>   
+         count++;
+        }
+    }
+
+           <a href = 'https://localhost:7260/Register'>Страница Регистрации</a>
+           <br />
+           <br />
+           <a href = 'https://localhost:7260/Login'>Страница Авторизации</a>
+       </body>
+    </html>

@@ -1,0 +1,61 @@
+﻿@model Lab3.Models.RegisterModel
+ 
+ 
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+     
+    <div>
+        <h1>Регистрация пользователя</h1>
+        <hr />
+        @Html.ValidationSummary(false)
+           
+        <div>
+            Логин
+            <div>
+                @Html.EditorFor(model => model.login)
+            </div>
+        </div>
+
+         <div>
+            Пароль
+            <div>
+                @Html.EditorFor(model => model.Password)
+            </div>
+        </div>
+ 
+         <div>
+            Повторите пароль
+            <div>
+                @Html.EditorFor(model => model.passwordConfirm)
+            </div>
+        </div>
+
+
+        <div>
+            Электронная почта
+            <div>
+                @Html.EditorFor(model => model.email)
+            </div>
+        </div>
+ 
+        <div>
+            Роль
+            <div>
+               @Html.DropDownListFor(m => m.role, new SelectList(new string[] {"Customers","Executor"}))
+            </div>
+        </div>
+ 
+          <div>
+              <div>
+                <input type="submit" value="Зарегистрировать" />
+              </div>
+         </div>
+        
+         <div>
+             <a href = '/'> Главная </a>
+         </div>
+        
+    </div>
+ 
+}

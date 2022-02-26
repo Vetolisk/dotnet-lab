@@ -1,0 +1,39 @@
+﻿@model Lab3.Models.LoginModel
+
+ 
+<h1>Авторизация</h1>
+ 
+ 
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+     
+    <div>
+        <hr />
+        @Html.ValidationSummary(false)
+           
+        <div>
+            Логин
+            <div>
+                @Html.EditorFor(model => model.login)
+            </div>
+        </div>
+
+         <div>
+            Пароль
+            <div>
+                @Html.EditorFor(model => model.Password)
+            </div>
+        </div>
+ 
+          <div>
+                <input type="submit" value="Войти" />
+         </div>
+        
+         <div>
+             <a href = '/'> Главная </a>
+         </div>
+        
+    </div>
+ 
+}
